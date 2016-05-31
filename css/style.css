@@ -1,0 +1,49 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+header {
+  background-color: #c20000;
+  color: #ededed;
+  height: 5em;
+}
+
+header h1 {
+  margin: 0;
+  line-height: 2.5em;
+}
+
+.content {
+  text-align: center;
+  padding: 0 10% 0 10%;
+}
+
+.listinput {
+  padding: 1em 0 1em 0;
+}
+
+.listinput > input {
+  border: none;
+  border-bottom: 1px solid #ededed;
+  padding-left: 0.5em;
+}
+
+.listinput > input[type=number] {
+  width: 2em;
+  text-align: center;
+  padding-right: 0em;
+  padding-left: 0
+  margin-right: 0.5em;
+}
