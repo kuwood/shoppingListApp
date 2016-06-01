@@ -8,6 +8,7 @@ html {
   -webkit-font-smoothing: antialiased;
   margin: 0;
   color: #181818;
+  font-size: 1.5em;
 }
 
 ul, ol {
@@ -22,8 +23,9 @@ header {
 }
 
 header h1 {
+  font-size: 3em;
   margin: 0;
-  line-height: 2.5em;
+  line-height: 1.7em;
 }
 
 .content {
@@ -44,7 +46,8 @@ header h1 {
 .listinput > input[type=number] {
   width: 2em;
   text-align: right;
-  margin-right: 0.25em;
+  margin-right: 0.5em;
+  -moz-appearance:textfield;
 }
 
 .itemlist {
@@ -55,3 +58,43 @@ header h1 {
   color: #cccccc;
   text-decoration: line-through;
 }
+
+.reset {
+  padding: 1em 0em 1em 0em;
+}
+
+button, input[type=submit] {
+  border: none;
+  text-decoration: none;
+  background-color: red;
+  color: #ededed;
+  padding: 0.25em;
+
+}
+
+@media only screen and (max-width: 620px) {
+  header h1 {
+    font-size: 1.5em;
+    line-height: 3em;;
+  }
+
+  input[type=checkbox] {
+    font-size: 5em;
+  }
+
+  .listinput > input {
+    display: block;
+    margin: 0 auto 0 auto;
+    width: 6em;
+  }
+
+  .listinput > input[type=text] {
+    width: 9em;
+  }
+  .listinput > input[type=number] {
+    text-align: center;
+    margin: 0.5em auto 0.5em auto;
+  }
+}
+
+/**526px breaking point**/
