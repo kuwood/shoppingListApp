@@ -90,6 +90,7 @@ button, input[type=submit] {
 
   .listinput > input[type=text] {
     width: 9em;
+    text-align: center;
   }
   .listinput > input[type=number] {
     text-align: center;
