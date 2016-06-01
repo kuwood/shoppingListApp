@@ -16,30 +16,34 @@
   </header>
   <section class="form">
     <div class="content">
-      <form class="listinput" action="index.html" method="post">
-          <input type="text" name="Item" placeholder="List item">
-          <input type="number" name="quantity" placeholder=0>
-          <input type="submit" value="Add">
+      <form class="listinput">
+          <input id="itemname" type="text" name="Item" placeholder="List item">
+          <input id="quantity" type="number" name="quantity" placeholder=0>
+          <input id="submit" type="button" value="Add">
       </form>
     </div>
   </section>
   <section class="itemlist">
     <div class="content">
       <ul class="todo">
-    <li><input type="checkbox"> checkbox 1</li>
-    <li><input type="checkbox"> checkbox 2</li>
-    <li><input type="checkbox"> checkbox 3</li>
-    <li><input type="checkbox"> checkbox 4</li>
+      </ul>
+      <ul class="todoQuantity">
       </ul>
     </div>
   </section>
   <section class="itemlist">
     <div class="content">
-      <ul class="completed">
-        <li><input type="checkbox" checked> checkbox 5</li>
-        <li><input type="checkbox" checked> checkbox 6</li>
-        <li><input type="checkbox" checked> checkbox 7</li>
-        <li><input type="checkbox" checked> checkbox 8</li>
+      <ul class="complete">
+        <li><input type="checkbox" checked> checkbox </li>
+        <li><input type="checkbox" checked> checkbox </li>
+        <li><input type="checkbox" checked> checkbox </li>
+        <li><input type="checkbox" checked> checkbox </li>
+      </ul>
+      <ul class="quantityComplete">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
       </ul>
     </div>
   </section>

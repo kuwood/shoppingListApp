@@ -54,7 +54,7 @@ header h1 {
   padding-top: 2em;
 }
 
-.completed {
+.complete, .quantityComplete {
   color: #cccccc;
   text-decoration: line-through;
 }
@@ -63,13 +63,22 @@ header h1 {
   padding: 1em 0em 1em 0em;
 }
 
-button, input[type=submit] {
+button, input[type=button] {
   border: none;
   text-decoration: none;
   background-color: red;
   color: #ededed;
   padding: 0.25em;
+}
 
+.todoQuantity, .todo, .complete, .quantityComplete {
+  text-align: left;
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.todoQuantity {
+    padding-left: 1em;
 }
 
 @media only screen and (max-width: 620px) {
