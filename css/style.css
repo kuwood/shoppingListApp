@@ -34,7 +34,7 @@ header h1 {
 }
 
 .listinput {
-  padding: 1em 0 1em 0;
+  padding-top: 1em;
 }
 
 .listinput > input {
@@ -95,6 +95,10 @@ button, input[type=submit] {
   .listinput > input[type=number] {
     text-align: center;
     margin: 0.5em auto 0.5em auto;
+  }
+
+  .itemlist {
+    padding-top: 1em;
   }
 }
 
