@@ -1,3 +1,4 @@
+//remove item feature
 deleteme = function (ul) {
   $(ul).on('mouseenter','li', function() {
     $(this).append('<i class="fa fa-times" aria-hidden="true"></i>')
@@ -10,6 +11,13 @@ deleteme = function (ul) {
     $('i').remove()
 })};
 
+showhidebutton = function() {
+  if ($('.showhide').length == 0
+   && $('.todo').children().length > 0) {
+    $('.todoContent').prepend('<button class="showhide">Hide list</button>')
+  }
+}
+
 $(document).ready(function() {
   //new item feature
   $('#submit').click(function() {
@@ -17,7 +25,14 @@ $(document).ready(function() {
      + $('#itemname').val() + '</li>')
     /**$('.todoQuantity').prepend('<li> '
      + $('#quantity').val() + '</li>')**/
+    showhidebutton()
   })
+
+  //show/hide todo list feature
+  $('.todoContent').on('click','button', function(event) {
+    $('.todo').hide()
+  })
+
   //remove item feature
   deleteme('.complete')
   deleteme('.todo')
