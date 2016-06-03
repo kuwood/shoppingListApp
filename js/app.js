@@ -59,5 +59,6 @@ $(document).ready(function() {
   //clear feature
   $('#clear').click(function() {
     $('ul > li').remove()
+    $('.showhide').remove()
   })
 });
