@@ -91,7 +91,7 @@ $(document).ready(function() {
 
     alldiv = $('ul').find('.divcheck')
     for (i = 0; i < alldiv.length; i++) {
-      $(alldiv[i]).show()
+      $(alldiv[i]).parent().show()
     }
     for (i = 0; i < alldiv.length; i++) {
       if ($(alldiv[i]).text().indexOf(inQuiry) == -1) {
