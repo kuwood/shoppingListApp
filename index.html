@@ -15,61 +15,51 @@
       <h1>Quick List</h1>
     </div>
   </header>
-  <section class="form">
-    <div class="content">
-      <form class="listinput">
-          <input id="itemname" type="text" name="Item" placeholder="List item">
-          <input id="quantity" type="number" name="quantity" placeholder=0>
-          <input id="submit" type="button" value="Add">
-      </form>
-    </div>
-  </section>
-  <section class="itemlist">
-    <div class="content todoContent">
-      <ul class="todo">
-      </ul>
-      <ul class="todoQuantity">
+  <div class="wrapcontent">
+    <div class="drawer">
+      <button class="favsshowhide">favorites</button>
+      <ul class="favorites">
       </ul>
     </div>
-  </section>
-  <section class="itemlist">
-    <div class="content">
-      <ul class="complete">
-        <li>
-          <div class='divcheck'>
-            <input type="checkbox" checked/> checkbox
-          </div>
-          <div class="quantity">10</div>
-          <div class="remove"></div>
-        </li>
-        <li>
-          <div class='divcheck'>
-            <input type="checkbox" checked/> checkbox
-          </div>
-          <div class="quantity">10</div>
-          <div class="remove"></div>
-        </li>
-        <li>
-          <div class='divcheck'>
-            <input type="checkbox" checked/> checkbox
-          </div>
-          <div class="quantity">10</div>
-          <div class="remove"></div>
-        </li>
-        <li>
-          <div class='divcheck'>
-            <input type="checkbox" checked/> checkbox
-          </div>
-          <div class="quantity">10</div>
-          <div class="remove"></div>
-        </li>
-      </ul>
-    </div>
-  </section>
-  <section class="reset">
-    <div class="content">
-      <button id='clear'>Clear all</button>
-    </div>
-  </section>
+    <section class="form">
+      <div class="content">
+        <form class="listinput">
+            <input id="itemname" type="text" name="Item" placeholder="List item">
+            <input id="quantity" type="number" name="quantity" placeholder=0>
+            <input id="submit" type="button" value="Add">
+        </form>
+      </div>
+    </section>
+    <section class="form">
+      <div class="content">
+        <form class="search">
+          <input id="searchbox" type="text" placeholder="Item search">
+          <input id="itemsearch" type="button" value="=>">
+        </form>
+      </div>
+    </section>
+    <section class="itemlist">
+      <div class="content todoContent">
+        <ul class="todo">
+        </ul>
+      </div>
+    </section>
+    <section class="itemlist">
+      <div class="content">
+        <ul class="complete">
+        </ul>
+      </div>
+    </section>
+    <!-- <section class="itemlist">
+      <div class="content">-->
+
+      <!--</div>
+    </section>-->
+    <section class="reset">
+      <div class="content">
+        <button id='clear'>Clear all</button>
+      </div>
+    </section>
+  </div>
 </body>
 </html></html>
