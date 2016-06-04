@@ -64,13 +64,14 @@ $(document).ready(function() {
       favsshow = 1
     }
   })
-  //favorites feature
+  //store favorites feature
   for (item in localStorage) {
     if (localStorage.getItem(item) > 5) {
       favs.push(item)
       console.log('Wow, it seems you really like ' + '"' + item + '"')
     }
   }
+  //add from favorites feature
   $('.favorites').on('click','li', function(event) {
     addTomyList($(this).text())
     countOfItems($(this).text())
@@ -80,7 +81,9 @@ $(document).ready(function() {
      + $(this).text() +
      '</div><div class="quantity">' + quantity +
      '</div><div class="remove"></div></li>')
+    showhidebutton()
   })
+  //populate favorites feature
   favs.forEach(function(item) {
     $('.favorites').prepend(
       '<li>'+ item + '</li>')
