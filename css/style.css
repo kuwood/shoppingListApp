@@ -17,6 +17,10 @@ ul, ol {
   width: 50%;
 }
 
+ul li {
+  cursor: pointer;
+}
+
 header {
   background-color: #c20000;
   color: #ededed;
@@ -35,6 +39,7 @@ h2 {
 
 i {
   margin-left: 0.5em;
+  cursor: pointer;
 }
 
 button, input[type=button] {
@@ -74,7 +79,8 @@ button, input[type=button] {
 }
 
 .favsshowhide {
-   margin-bottom: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 .drawer {
@@ -83,7 +89,6 @@ button, input[type=button] {
   height: 80%;
   width: 20%;
   text-align: center;
-  border: 1px solid red;
   z-index: 9999;
   padding: 0.25em;
 }

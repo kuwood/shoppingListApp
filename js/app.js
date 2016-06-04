@@ -2,7 +2,7 @@
 deleteme = function (ul) {
   $(ul).on('mouseenter','li', function() {
     $(this).find('.remove').append('<i class="fa fa-times" aria-hidden="true"></i>')
-    $('i').css('color','red')
+    $('.remove').css('color','red')
     $('i').click(function() {
       myList.pop($(this).parent().parent().text())
       $(this).parent().parent().remove()
@@ -10,7 +10,7 @@ deleteme = function (ul) {
     })
   })
   .on('mouseleave','li', function() {
-    $('i').remove()
+    $('.remove').children().remove()
 })};
 
 showhidebutton = function() {
@@ -72,12 +72,12 @@ $(document).ready(function() {
     }
   }
   $('.favorites').on('click','li', function(event) {
-    addTomyList($('li').text())
-    countOfItems($('li').text())
+    addTomyList($(this).text())
+    countOfItems($(this).text())
     quantity = prompt('How many?')
     $('.todo').prepend(
       '<li><div class="divcheck"><input type="checkbox"> '
-     + $('li').text() +
+     + $(this).text() +
      '</div><div class="quantity">' + quantity +
      '</div><div class="remove"></div></li>')
   })
@@ -95,7 +95,7 @@ $(document).ready(function() {
     }
     for (i = 0; i < alldiv.length; i++) {
       if ($(alldiv[i]).text().indexOf(inQuiry) == -1) {
-        $(alldiv[i]).hide()
+        $(alldiv[i]).parent().hide()
       }
     }
   })
