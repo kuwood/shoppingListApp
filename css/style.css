@@ -143,7 +143,9 @@ button, input[type=button] {
   vertical-align: text-top;
 }
 
-
+.favorites li:hover {
+  background-color: #ffcbcb;
+}
 
 @media only screen and (max-width: 763px) {
   header h1 {
