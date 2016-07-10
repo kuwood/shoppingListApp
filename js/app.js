@@ -1,138 +1,99 @@
-//remove item feature
-deleteme = function (ul) {
-  $(ul).on('mouseenter','li', function() {
-    $(this).find('.remove').append('<i class="fa fa-times" aria-hidden="true"></i>')
-    $('.remove').css('color','red')
-    $('i').click(function() {
-      myList.pop($(this).parent().parent().text())
-      $(this).parent().parent().remove()
-      console.log(myList)
-    })
-  })
-  .on('mouseleave','li', function() {
-    $('.remove').children().remove()
-})};
-
-showhidebutton = function() {
-  if ($('.showhide').length == 0
-   && $('.todo').children().length > 0) {
-    $('.todoContent').prepend('<button class="showhide">Hide list</button>')
-  }
-}
-
-//
-addTomyList = function(target) {
-  myList.push(target)
-}
-
-//localStorage item and item count
-countOfItems = function(target) {
-  var count = localStorage[target]
-  if (!count) {
-    count = 1
-  } else {
-    count++
-  }
-  localStorage[target] = count
-}
-var favsshow = 1
-var favs = []
-var myList = []
+var shopList = require('shoplist/shoplist.js');
 $(document).ready(function() {
   //new item feature
   $('#submit').click(function() {
     $('.todo').prepend(
-      '<li><div class="divcheck"><input type="checkbox"> '
-     + $('#itemname').val() +
+      '<li><div class="divcheck"><input type="checkbox"> ' +
+      $('#itemname').val() +
      '</div><div class="quantity">' +
      $('#quantity').val() +
-     '</div><div class="remove"></div></li>')
-    showhidebutton()
-    addTomyList($('#itemname').val())
+     '</div><div class="remove"></div></li>');
+    shoplist.showhidebutton();
+    shoplist.addTomyList($('#itemname').val());
     //localStorage.myList = myList (not using)
-    console.log(myList)
+    console.log(shoplist.myList);
     //localStorage item count
-    countOfItems($('#itemname').val())
-  })
+    shoplist.countOfItems($('#itemname').val());
+  });
   //favorites button
   $('.favsshowhide').click(function(event) {
-    if (favsshow == 1) {
-      $('.favorites').hide()
-      favsshow = 0
+    if (shoplist.favsshow == 1) {
+      $('.favorites').hide();
+      shoplist.favsshow = 0;
     } else {
-      $('.favorites').show()
-      favsshow = 1
+      $('.favorites').show();
+      shoplist.favsshow = 1;
     }
-  })
+  });
   //store favorites feature
-  for (item in localStorage) {
+  for (var item in localStorage) {
     if (localStorage.getItem(item) > 5) {
-      favs.push(item)
-      console.log('Wow, it seems you really like ' + '"' + item + '"')
+      shoplist.favs.push(item);
+      console.log('Wow, it seems you really like ' + '"' + item + '"');
     }
   }
   //add from favorites feature
   $('.favorites').on('click','li', function(event) {
-    addTomyList($(this).text())
-    countOfItems($(this).text())
-    quantity = prompt('How many?')
+    shoplist.addTomyList($(this).text());
+    shoplist.countOfItems($(this).text());
+    quantity = prompt('How many?');
     $('.todo').prepend(
-      '<li><div class="divcheck"><input type="checkbox"> '
-     + $(this).text() +
+      '<li><div class="divcheck"><input type="checkbox"> ' +
+      $(this).text() +
      '</div><div class="quantity">' + quantity +
-     '</div><div class="remove"></div></li>')
-    showhidebutton()
-  })
+     '</div><div class="remove"></div></li>');
+    shoplist.showhidebutton();
+  });
   //populate favorites feature
   favs.forEach(function(item) {
     $('.favorites').prepend(
-      '<li>'+ item + '</li>')
-  })
+      '<li>'+ item + '</li>');
+  });
   //search feature
   $('#itemsearch').click(function() {
-    var inQuiry = $('#searchbox').val()
+    var inQuiry = $('#searchbox').val();
 
-    alldiv = $('ul').find('.divcheck')
+    alldiv = $('ul').find('.divcheck');
     for (i = 0; i < alldiv.length; i++) {
-      $(alldiv[i]).parent().show()
+      $(alldiv[i]).parent().show();
     }
     for (i = 0; i < alldiv.length; i++) {
       if ($(alldiv[i]).text().indexOf(inQuiry) == -1) {
-        $(alldiv[i]).parent().hide()
+        $(alldiv[i]).parent().hide();
       }
     }
-  })
+  });
   //show/hide todo list feature
   $('.todoContent').on('click','button', function(event) {
     if ($('.showhide').text() == 'Hide list') {
-      $('.todo').hide()
-      $('.showhide').text('Show list')
+      $('.todo').hide();
+      $('.showhide').text('Show list');
     } else {
-      $('.todo').show()
-      $('.showhide').text('Hide list')
+      $('.todo').show();
+      $('.showhide').text('Hide list');
     }
-  })
+  });
 
   //remove item feature
-  deleteme('.complete')
-  deleteme('.todo')
+  shoplist.deleteme('.complete');
+  shoplist.deleteme('.todo');
   //mark complete feature
   $('.todo').on('click','li', function(event) {
     ($('input', this).prop('checked', true));
-    $('i').remove()
-    $('.complete').prepend($(this))
-  })
+    $('i').remove();
+    $('.complete').prepend($(this));
+  });
   //undo complete feature
   $('.complete').on('click','li', function(event) {
     ($('input', this).prop('checked', false));
-    $('i').remove()
-    $('.todo').prepend($(this))
-  })
+    $('i').remove();
+    $('.todo').prepend($(this));
+  });
   //clear feature
   $('#clear').click(function() {
-    $('.todo > li').remove()
-    $('.complete > li').remove()
-    $('.showhide').remove()
-    myList = []
-  })
+    $('.todo > li').remove();
+    $('.complete > li').remove();
+    $('.showhide').remove();
+    shoplist.myList = [];
+  });
 });

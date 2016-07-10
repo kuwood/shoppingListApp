@@ -1,0 +1,28 @@
+{
+  "name": "shopping-list-app",
+  "version": "1.0.0",
+  "description": "shopping list app",
+  "main": "js/app.js",
+  "scripts": {
+    "mkdir": "mkdir -p build",
+    "build": "npm run clean && npm run mkdir && npm run build:js",
+    "watch": "npm run & npm run watch:js",
+    "clean": "rm -rf build",
+    "build:js": "npm run clean:js && webpack",
+    "watch:js": "npm run build:js && webpack --watch",
+    "clean:js": "rm -f build/$npm_package_name.$npm_package_version.js build/$npm_package_name.$npm_package_version.js.map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuwood/shoppingListApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuwood/shoppingListApp/issues"
+  },
+  "homepage": "https://github.com/kuwood/shoppingListApp#readme",
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
+}
