@@ -1,0 +1,184 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  color: #181818;
+  font-size: 1.5em;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  width: 50%;
+}
+
+ul li {
+  cursor: pointer;
+}
+
+header {
+  background-color: #c20000;
+  color: #ededed;
+  height: 5em;
+}
+
+header h1 {
+  font-size: 2em;
+  margin: 0;
+  line-height: 2.5em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+i {
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+button, input[type=button] {
+  border: none;
+  text-decoration: none;
+  background-color: red;
+  color: #ededed;
+  padding: 0.25em;
+}
+
+.divcheck {
+  width: 70%;
+  float: left;
+}
+
+.quantity {
+  width: 25%;
+  float: left;
+  text-align: right;
+}
+
+.remove {
+  width: 5%;
+  float: left;
+}
+
+.showhide {
+  display: block;
+  text-align: center;
+  margin: auto;
+  background-color: #9d9d9d;
+}
+
+.content {
+  text-align: center;
+  padding: 0 10% 0 10%;
+}
+
+.favsshowhide {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.drawer {
+  position: absolute;
+  float: left;
+  height: 80%;
+  width: 20%;
+  text-align: center;
+  z-index: 9999;
+  padding: 0.25em;
+}
+
+.favorites {
+  width: 100%;
+  margin: 0;
+  float: none;
+}
+
+.listinput {
+  padding-top: 1em;
+}
+
+.listinput > input {
+  border: none;
+  border-bottom: 1px solid #ededed;
+  padding: 0.1em 0.25em;
+}
+
+.listinput > input[type=number] {
+  width: 2em;
+  text-align: right;
+  margin-right: 0.5em;
+  -moz-appearance:textfield;
+}
+
+.search {
+  margin-top: 1em;
+}
+
+.search input {
+  padding-left: 0.25em;
+}
+
+.itemlist {
+  padding-top: 2em;
+}
+
+.complete .divcheck, .complete .quantity {
+  color: #cccccc;
+  text-decoration: line-through !important;
+}
+
+.reset {
+  padding: 1em 0em 1em 0em;
+}
+
+.todoQuantity, .todo, .complete, .quantityComplete {
+  text-align: left;
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.favorites li:hover {
+  background-color: #ffcbcb;
+}
+
+@media only screen and (max-width: 763px) {
+  header h1 {
+    font-size: 1.5em;
+    line-height: 3em;;
+  }
+
+  input[type=checkbox] {
+    font-size: 5em;
+  }
+
+  .listinput > input {
+    display: block;
+    margin: 0 auto 0 auto;
+    width: 6em;
+  }
+
+  .listinput > input[type=text] {
+    width: 9em;
+    text-align: center;
+  }
+  .listinput > input[type=number] {
+    text-align: center;
+    margin: 0.5em auto 0.5em auto;
+  }
+
+  .itemlist {
+    padding-top: 1em;
+  }
+}
+
+@media only screen and (max-width: 763px) {
+  #searchbox {
+    width: 6em;
+  }
+}

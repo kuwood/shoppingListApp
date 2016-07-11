@@ -1,4 +1,4 @@
-var shopList = require('shoplist/shoplist.js');
+var shopList = require('../shoplist/shoplist.js');
 $(document).ready(function() {
   //new item feature
   $('#submit').click(function() {
@@ -8,44 +8,44 @@ $(document).ready(function() {
      '</div><div class="quantity">' +
      $('#quantity').val() +
      '</div><div class="remove"></div></li>');
-    shoplist.showhidebutton();
-    shoplist.addTomyList($('#itemname').val());
+    shopList.showhidebutton();
+    shopList.addTomyList($('#itemname').val());
     //localStorage.myList = myList (not using)
-    console.log(shoplist.myList);
+    console.log(shopList.myList);
     //localStorage item count
-    shoplist.countOfItems($('#itemname').val());
+    shopList.countOfItems($('#itemname').val());
   });
   //favorites button
   $('.favsshowhide').click(function(event) {
-    if (shoplist.favsshow == 1) {
+    if (shopList.favsshow == 1) {
       $('.favorites').hide();
-      shoplist.favsshow = 0;
+      shopList.favsshow = 0;
     } else {
       $('.favorites').show();
-      shoplist.favsshow = 1;
+      shopList.favsshow = 1;
     }
   });
   //store favorites feature
   for (var item in localStorage) {
     if (localStorage.getItem(item) > 5) {
-      shoplist.favs.push(item);
+      shopList.favs.push(item);
       console.log('Wow, it seems you really like ' + '"' + item + '"');
     }
   }
   //add from favorites feature
   $('.favorites').on('click','li', function(event) {
-    shoplist.addTomyList($(this).text());
-    shoplist.countOfItems($(this).text());
-    quantity = prompt('How many?');
+    shopList.addTomyList($(this).text());
+    shopList.countOfItems($(this).text());
+    var quantity = prompt('How many?');
     $('.todo').prepend(
       '<li><div class="divcheck"><input type="checkbox"> ' +
       $(this).text() +
      '</div><div class="quantity">' + quantity +
      '</div><div class="remove"></div></li>');
-    shoplist.showhidebutton();
+    shopList.showhidebutton();
   });
   //populate favorites feature
-  favs.forEach(function(item) {
+  shopList.favs.forEach(function(item) {
     $('.favorites').prepend(
       '<li>'+ item + '</li>');
   });
@@ -75,8 +75,8 @@ $(document).ready(function() {
   });
 
   //remove item feature
-  shoplist.deleteme('.complete');
-  shoplist.deleteme('.todo');
+  shopList.deleteme('.complete');
+  shopList.deleteme('.todo');
   //mark complete feature
   $('.todo').on('click','li', function(event) {
     ($('input', this).prop('checked', true));
@@ -94,6 +94,6 @@ $(document).ready(function() {
     $('.todo > li').remove();
     $('.complete > li').remove();
     $('.showhide').remove();
-    shoplist.myList = [];
+    shopList.myList = [];
   });
 });

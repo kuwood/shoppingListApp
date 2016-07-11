@@ -7,9 +7,9 @@ module.exports.deleteme = function(ul) {
       $(this).find('.remove').append('<i class="fa fa-times" aria-hidden="true"></i>');
       $('.remove').css('color', 'red');
       $('i').click(function() {
-        myList.pop($(this).parent().parent().text());
+        module.exports.myList.pop($(this).parent().parent().text());
         $(this).parent().parent().remove();
-        console.log(myList);
+        console.log(module.exports.myList);
       });
     })
     .on('mouseleave', 'li', function() {
@@ -26,7 +26,7 @@ module.exports.showhidebutton = function() {
 
 //
 module.exports.addTomyList = function(target) {
-  myList.push(target);
+  module.exports.myList.push(target);
 };
 
 //localStorage item and item count
