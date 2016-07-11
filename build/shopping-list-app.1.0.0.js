@@ -44,16 +44,13 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
 	var shopList = __webpack_require__(1);
-	$(document).ready(function() {
+	$(function () {
 	  //new item feature
-	  $('#submit').click(function() {
-	    $('.todo').prepend(
-	      '<li><div class="divcheck"><input type="checkbox"> ' +
-	      $('#itemname').val() +
-	     '</div><div class="quantity">' +
-	     $('#quantity').val() +
-	     '</div><div class="remove"></div></li>');
+	  $('#submit').click(function () {
+	    $('.todo').prepend('<li><div class="divcheck"><input type="checkbox"> ' + $('#itemname').val() + '</div><div class="quantity">' + $('#quantity').val() + '</div><div class="remove"></div></li>');
 	    shopList.showhidebutton();
 	    shopList.addTomyList($('#itemname').val());
 	    //localStorage.myList = myList (not using)
@@ -62,7 +59,7 @@
 	    shopList.countOfItems($('#itemname').val());
 	  });
 	  //favorites button
-	  $('.favsshowhide').click(function(event) {
+	  $('.favsshowhide').click(function (event) {
 	    if (shopList.favsshow == 1) {
 	      $('.favorites').hide();
 	      shopList.favsshow = 0;
@@ -79,38 +76,33 @@
 	    }
 	  }
 	  //add from favorites feature
-	  $('.favorites').on('click','li', function(event) {
-	    shopList.addTomyList($(this).text());
-	    shopList.countOfItems($(this).text());
+	  $('.favorites').on('click', 'li', function (event) {
+	    shopList.addTomyList($(undefined).text());
+	    shopList.countOfItems($(undefined).text());
 	    var quantity = prompt('How many?');
-	    $('.todo').prepend(
-	      '<li><div class="divcheck"><input type="checkbox"> ' +
-	      $(this).text() +
-	     '</div><div class="quantity">' + quantity +
-	     '</div><div class="remove"></div></li>');
+	    $('.todo').prepend('<li><div class="divcheck"><input type="checkbox"> ' + $(undefined).text() + '</div><div class="quantity">' + quantity + '</div><div class="remove"></div></li>');
 	    shopList.showhidebutton();
 	  });
 	  //populate favorites feature
-	  shopList.favs.forEach(function(item) {
-	    $('.favorites').prepend(
-	      '<li>'+ item + '</li>');
+	  shopList.favs.forEach(function (item) {
+	    $('.favorites').prepend('<li>' + item + '</li>');
 	  });
 	  //search feature
-	  $('#itemsearch').click(function() {
+	  $('#itemsearch').click(function () {
 	    var inQuiry = $('#searchbox').val();
 	
 	    alldiv = $('ul').find('.divcheck');
-	    for (i = 0; i < alldiv.length; i++) {
+	    for (var i = 0; i < alldiv.length; i++) {
 	      $(alldiv[i]).parent().show();
 	    }
-	    for (i = 0; i < alldiv.length; i++) {
-	      if ($(alldiv[i]).text().indexOf(inQuiry) == -1) {
-	        $(alldiv[i]).parent().hide();
+	    for (var _i = 0; _i < alldiv.length; _i++) {
+	      if ($(alldiv[_i]).text().indexOf(inQuiry) == -1) {
+	        $(alldiv[_i]).parent().hide();
 	      }
 	    }
 	  });
 	  //show/hide todo list feature
-	  $('.todoContent').on('click','button', function(event) {
+	  $('.todoContent').on('click', 'button', function (event) {
 	    if ($('.showhide').text() == 'Hide list') {
 	      $('.todo').hide();
 	      $('.showhide').text('Show list');
@@ -124,19 +116,19 @@
 	  shopList.deleteme('.complete');
 	  shopList.deleteme('.todo');
 	  //mark complete feature
-	  $('.todo').on('click','li', function(event) {
-	    ($('input', this).prop('checked', true));
+	  $('.todo').on('click', 'li', function (event) {
+	    $('input', undefined).prop('checked', true);
 	    $('i').remove();
-	    $('.complete').prepend($(this));
+	    $('.complete').prepend($(undefined));
 	  });
 	  //undo complete feature
-	  $('.complete').on('click','li', function(event) {
-	    ($('input', this).prop('checked', false));
+	  $('.complete').on('click', 'li', function (event) {
+	    $('input', undefined).prop('checked', false);
 	    $('i').remove();
-	    $('.todo').prepend($(this));
+	    $('.todo').prepend($(undefined));
 	  });
 	  //clear feature
-	  $('#clear').click(function() {
+	  $('#clear').click(function () {
 	    $('.todo > li').remove();
 	    $('.complete > li').remove();
 	    $('.showhide').remove();
@@ -144,44 +136,43 @@
 	  });
 	});
 
-
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
+	'use strict';
+	
 	module.exports.favsshow = 1;
 	module.exports.favs = [];
 	module.exports.myList = [];
 	//remove item feature
-	module.exports.deleteme = function(ul) {
-	  $(ul).on('mouseenter', 'li', function() {
-	      $(this).find('.remove').append('<i class="fa fa-times" aria-hidden="true"></i>');
-	      $('.remove').css('color', 'red');
-	      $('i').click(function() {
-	        module.exports.myList.pop($(this).parent().parent().text());
-	        $(this).parent().parent().remove();
-	        console.log(module.exports.myList);
-	      });
-	    })
-	    .on('mouseleave', 'li', function() {
-	      $('.remove').children().remove();
+	module.exports.deleteme = function (ul) {
+	  $(ul).on('mouseenter', 'li', function () {
+	    $(undefined).find('.remove').append('<i class="fa fa-times" aria-hidden="true"></i>');
+	    $('.remove').css('color', 'red');
+	    $('i').click(function () {
+	      module.exports.myList.pop($(undefined).parent().parent().text());
+	      $(undefined).parent().parent().remove();
+	      console.log(module.exports.myList);
 	    });
+	  }).on('mouseleave', 'li', function () {
+	    $('.remove').children().remove();
+	  });
 	};
 	
-	module.exports.showhidebutton = function() {
-	  if ($('.showhide').length === 0 &&
-	    $('.todo').children().length > 0) {
+	module.exports.showhidebutton = function () {
+	  if ($('.showhide').length === 0 && $('.todo').children().length > 0) {
 	    $('.todoContent').prepend('<button class="showhide">Hide list</button>');
 	  }
 	};
 	
 	//
-	module.exports.addTomyList = function(target) {
+	module.exports.addTomyList = function (target) {
 	  module.exports.myList.push(target);
 	};
 	
 	//localStorage item and item count
-	module.exports.countOfItems = function(target) {
+	module.exports.countOfItems = function (target) {
 	  var count = localStorage[target];
 	  if (!count) {
 	    count = 1;
@@ -190,7 +181,6 @@
 	  }
 	  localStorage[target] = count;
 	};
-
 
 /***/ }
 /******/ ]);

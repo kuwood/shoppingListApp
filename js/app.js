@@ -1,7 +1,7 @@
 var shopList = require('../shoplist/shoplist.js');
-$(document).ready(function() {
+$( () => {
   //new item feature
-  $('#submit').click(function() {
+  $('#submit').click(() =>  {
     $('.todo').prepend(
       '<li><div class="divcheck"><input type="checkbox"> ' +
       $('#itemname').val() +
@@ -16,7 +16,7 @@ $(document).ready(function() {
     shopList.countOfItems($('#itemname').val());
   });
   //favorites button
-  $('.favsshowhide').click(function(event) {
+  $('.favsshowhide').click( (event) => {
     if (shopList.favsshow == 1) {
       $('.favorites').hide();
       shopList.favsshow = 0;
@@ -26,17 +26,17 @@ $(document).ready(function() {
     }
   });
   //store favorites feature
-  for (var item in localStorage) {
+  for (let item in localStorage) {
     if (localStorage.getItem(item) > 5) {
       shopList.favs.push(item);
       console.log('Wow, it seems you really like ' + '"' + item + '"');
     }
   }
   //add from favorites feature
-  $('.favorites').on('click','li', function(event) {
+  $('.favorites').on('click','li', (event) => {
     shopList.addTomyList($(this).text());
     shopList.countOfItems($(this).text());
-    var quantity = prompt('How many?');
+    let quantity = prompt('How many?');
     $('.todo').prepend(
       '<li><div class="divcheck"><input type="checkbox"> ' +
       $(this).text() +
@@ -45,26 +45,26 @@ $(document).ready(function() {
     shopList.showhidebutton();
   });
   //populate favorites feature
-  shopList.favs.forEach(function(item) {
+  shopList.favs.forEach( (item) => {
     $('.favorites').prepend(
       '<li>'+ item + '</li>');
   });
   //search feature
-  $('#itemsearch').click(function() {
-    var inQuiry = $('#searchbox').val();
+  $('#itemsearch').click( () => {
+    let inQuiry = $('#searchbox').val();
 
     alldiv = $('ul').find('.divcheck');
-    for (i = 0; i < alldiv.length; i++) {
+    for (let i = 0; i < alldiv.length; i++) {
       $(alldiv[i]).parent().show();
     }
-    for (i = 0; i < alldiv.length; i++) {
+    for (let i = 0; i < alldiv.length; i++) {
       if ($(alldiv[i]).text().indexOf(inQuiry) == -1) {
         $(alldiv[i]).parent().hide();
       }
     }
   });
   //show/hide todo list feature
-  $('.todoContent').on('click','button', function(event) {
+  $('.todoContent').on('click','button', (event) =>  {
     if ($('.showhide').text() == 'Hide list') {
       $('.todo').hide();
       $('.showhide').text('Show list');
@@ -78,19 +78,19 @@ $(document).ready(function() {
   shopList.deleteme('.complete');
   shopList.deleteme('.todo');
   //mark complete feature
-  $('.todo').on('click','li', function(event) {
+  $('.todo').on('click','li', (event) => {
     ($('input', this).prop('checked', true));
     $('i').remove();
     $('.complete').prepend($(this));
   });
   //undo complete feature
-  $('.complete').on('click','li', function(event) {
+  $('.complete').on('click','li', (event) => {
     ($('input', this).prop('checked', false));
     $('i').remove();
     $('.todo').prepend($(this));
   });
   //clear feature
-  $('#clear').click(function() {
+  $('#clear').click( () =>  {
     $('.todo > li').remove();
     $('.complete > li').remove();
     $('.showhide').remove();
